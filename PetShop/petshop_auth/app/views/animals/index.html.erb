@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Raça</th>
+      <th>Nome</th>
+      <th>Idade</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @animals.each do |animal| %>
+      <tr>
+        <td><%= animal.raca %></td>
+        <td><%= animal.nome %></td>
+        <td><%= animal.idade %></td>
+        <td><div class="btn btn-light"><%= link_to 'Alterar', edit_animal_path(animal), :class => "btn btn-warning" %></div></td>
+        <!-- Caso queira excluir <td><div class="btn btn-light"><%= link_to 'Destroy', animal, :class => "btn", method: :delete, data: { confirm: 'Are you sure?' } %></td></div> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Log out", destroy_user_session_path, method: :delete, :class => "btn btn-danger" %>
+
+<br>

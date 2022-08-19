@@ -1,0 +1,45 @@
+<%= form_with(model: animal, local: true) do |form| %>
+  <% if animal.errors.any? %>
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="form-group">
+          <div id="error_explanation">
+            <h2><%= pluralize(animal.errors.count, "error") %> prohibited this animal from being saved:</h2>
+
+            <ul>
+              <% animal.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="form-group">
+      <div class="col-sm-3">
+        <div class="field">
+          <%= form.label :raca %>
+          <%= form.text_field :raca, class:"form-control" %>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="field">
+          <%= form.label :nome %>
+          <%= form.text_field :nome, class:"form-control" %>
+        </div>
+      </div>
+  
+      <div class="col-sm-1">
+        <div class="field">
+          <%= form.label :idade %>
+          <%= form.number_field :idade, min: 1, max: 30, step: 0, class:"form-control" %>
+        </div>
+    </div>
+  </div>
+
+  <%= form.submit "Salvar", class:"btn btn-success" %>
+<% end %>
